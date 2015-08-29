@@ -56,6 +56,12 @@ unsigned long intfibonacci(unsigned long n) {
     return values[n];
 }
 
+// from http://pastebin.com/1U2D143s
+// https://twitter.com/JSMuellerRoemer/status/637586563346493440
+
+// "the best way to get the right answer on the Internet is not to ask a question, it's to post the wrong answer."
+// https://meta.wikimedia.org/wiki/Cunningham%27s_Law
+
 using result_t = uint_fast64_t;
 auto mult(result_t (&a)[2][2], result_t const (&b)[2][2]) -> void
 {
