@@ -7,6 +7,22 @@
 using namespace std;
 using namespace std::chrono;
 
+// vector that start with {0,1,1}
+// new fibonacci series are calculated from last known value
+// upto new value
+
+unsigned long intfibonacci(unsigned long n) {
+    static std::vector<unsigned long> values = {0,1,1};
+    if (n < values.size() ) {
+        return values[n];
+    }
+    for (unsigned long loop = values.size(); loop-1 < n ; ++loop){
+        values.push_back(values[loop-2] + values[loop-1]);
+    }
+    return values[n];
+}
+
+
 // http://www.cs.utexas.edu/users/EWD/transcriptions/EWD06xx/EWD654.html
 // http://www.cs.utexas.edu/users/EWD/ewd06xx/EWD654.PDF
 
@@ -43,17 +59,6 @@ unsigned long intfibdijkstra(unsigned long n) {
             values.at(num)=intfibdijkstra(num);
         return values[num-1]*values[num-1]+values[num]*values[num];
     }
-}
-
-unsigned long intfibonacci(unsigned long n) {
-    static std::vector<unsigned long> values = {0,1,1};
-    if (n < values.size() ) {
-        return values[n];
-    }
-    for (unsigned long loop = values.size(); loop-1 < n ; ++loop){
-        values.push_back(values[loop-2] + values[loop-1]);
-    }
-    return values[n];
 }
 
 // from http://pastebin.com/1U2D143s
