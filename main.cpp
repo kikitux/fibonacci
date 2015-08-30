@@ -37,9 +37,6 @@ unsigned long intfibdijkstra(unsigned long n) {
     if (n < values.size() && values[n] != 0 ) {
         return values[n];
     }
-    if (values.capacity() < n){
-        values.reserve(n);
-    }
     if (values.size() < n){
         values.resize(n);
     }
